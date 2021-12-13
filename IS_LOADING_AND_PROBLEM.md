@@ -15,30 +15,30 @@ isLoading в slices.
 ![alt text](https://github.com/LaughingThroll/IS-LOADING-and-PROBLEM/blob/main/InitialState.png)
 
 Что нам нужно сделать, чтобы избавиться от них. Мы должны написать,
-что то на подобие такого isLoading || !data, чтобы корректно показывать loader. 
+что то на подобие такого `isLoading || !data`, чтобы корректно показывать loader. 
+
 ![alt text](https://github.com/LaughingThroll/IS-LOADING-and-PROBLEM/blob/main/isLoading.png)
 
 Мы также можем это засунуть в какой то селектор или локальную переменную 
 `const selectIsLoading = (state) =>  state.isLoading || !state.data` 
 `const isLoading = isLoading || !data`  
 
-### Прекрасно
-
-Однако проблемы не кончаются. 
-Следующая проблема заключается в том, что состояние isLoading или isLoaded имеет только 2 состояния true или false. 
+Прекрасно.Однако проблемы не кончаются. 
+Следующая проблема заключается в том, что состояние `isLoading || isLoaded` имеет только 2 состояния true или false. 
 
 #### И в чем проблема? 
 Например: в моем случае мне нужно узнать, 
 что компонент уже загрузился и у него нету данных. 
 
-##### Как это сделать?
+#### Как это сделать?
 Проверить на `!isLoading && !data`. Однако начальное состояние состояний(извините, синоним не пришел в голову) `isLoading = false, data = null`. И мы имеем на первые рендеры мелькание от которого я хотел бы избавиться. 
 
-##### Решение проблемы 
+#### Решение проблемы 
 Я понял, что мне нужно 3 состояние, и это `null || undefined`. То есть `isLoading === null && !data`.
 Я видел еще второй случай. 
 Он находится в компонете AddAppointment(это компонент Дани, возможно он расскажет об этом), 
 где непонятно почему у нас есть проверка на `isLoading === undefined`. 
+
 ![alt text](https://github.com/LaughingThroll/IS-LOADING-AND-PROBLEM/blob/main/AddAppointment.png)
 
 
@@ -53,8 +53,9 @@ isLoading в slices.
 Он точно будет отображать в каком состоянии наши данные.
 Среди этих статей есть статья Kent C. Dodds. 
 Которая показывает нам почему мы должны использовать status вместо isLoading.
-Также я рассказал об этой проблеме Насте и мы написали Косте. Костя ответил, что status препочтительние.
-Перписку прикрепляю:
+Также я рассказал об этой проблеме Насте и мы написали Косте. Костя ответил, что status предпочтительние.
+Переписку прикрепляю:
+
 ![alt text](https://github.com/LaughingThroll/IS-LOADING-AND-PROBLEM/blob/main/chat.png)
 
 ### Статьи: 
