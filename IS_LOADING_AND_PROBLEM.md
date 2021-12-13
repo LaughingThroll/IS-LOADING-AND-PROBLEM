@@ -58,6 +58,11 @@ isLoading в slices.
 
 ![alt text](https://github.com/LaughingThroll/IS-LOADING-AND-PROBLEM/blob/main/chat.png)
 
+### Предлагаю использовать подход со статусами : 
+ - его очень легко расширять 
+ - дает больше гибкости 
+ - код станет больше понятным(мы будем понимать в каком состояние наши данные)   
+
 ### Статьи: 
  * https://kentcdodds.com/blog/stop-using-isloading-booleans
  * https://dev.to/joannaotmianowska/status-instead-of-isloading-boolean-53im?utm_source=dormosheio&utm_campaign=dormosheio
